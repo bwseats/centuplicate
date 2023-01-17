@@ -147,16 +147,16 @@
                                 let className = value % 2 == 0 ? 'even' : 'odd';
                             
                                 if (i % 5 == 0) {
-                                    tableHTML += '<tr>'
+                                    tableHTML += '&lt;tr&gt;'
                                 }
 
-                                let tableRow = `<td class="${className}">${value}</td>`;
+                                let tableRow = `&lt;td class="${className}"&gt;${value}&lt;/td&gt;`;
                             
                             
                                 tableHTML += tableRow
                             
                                 if ((i + 1) % 5 == 0) {
-                                    tableHTML += '</tr>'
+                                    tableHTML += '&lt;/tr&gt;'
                                 }
                             }
                         
