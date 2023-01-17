@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>project template</title>
+    <title>centuplicate</title>
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +41,7 @@
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="/img/icon-wave.png" height="50" alt="">
-                    <span class="ms-2">project template</span>
+                    <span class="ms-2">centuplicate</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -80,23 +80,87 @@
 
 
     <main class="content container bg-black">
-        <div class="row ms-3 mt-3">
+        <div class="row ms-3 mt-3 me-3">
             <h1 class="border-bottom border-2 text-light">code</h1>
-            
+
             <!-- source code -->
             <div class="col-12 col-lg-8">
                 <pre class="link-numbers">
                     <code class="language-js">
-                        function displayMessage() {
-                            let msg = document.getElementById('message').value;
+                        
+                        // controller function
+                        // gets user input from fields
+                        function getValues() {
+
+                            // get values
+                            let startValue = document.getElementById('startValue').value;
+                            let endValue = document.getElementById('endValue').value;
+                        
+                            // parse inputs as numbers
+                            startValue = parseInt(startValue);
+                            endValue = parseInt(endValue);
+                        
+                            // verify inputs are numbers
+                            if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
                             
-                            Swal.fire(
-                                {
-                                    backdrop: false,
-                                    title: 'app name',
-                                    text: msg
+                                // if so, generate numbers
+                                let numbersArray = generateNumbers(startValue, endValue);
+                            
+                                // display on page
+                                displayNumbers(numbersArray);
+                            
+                            } else {
+
+                                // else, notify user
+                            
+                                Swal.fire(
+                                    {
+                                        icon: 'error',
+                                        title: 'Oops!',
+                                        text: 'Only integers are allowed'
+                                    }
+                                );
+                            }
+                        }
+
+                        // logic function
+                        // generates numbers in a range
+                        function generateNumbers(start, end) {
+                        
+                            let numbers = [];
+                        
+                            for (let i = start; i <= end; i++) {
+                                numbers.push(i);
+                            }
+                            return numbers;
+                        }
+
+                        // view function
+                        // displays results
+                        function displayNumbers(numbersArray) {
+                            let tableBody = document.getElementById('results');
+                        
+                            let tableHTML = "";
+                        
+                            for (let i = 0; i < numbersArray.length; i++) {
+                                let value = numbersArray[i];
+                                let className = value % 2 == 0 ? 'even' : 'odd';
+                            
+                                if (i % 5 == 0) {
+                                    tableHTML += '<tr>'
                                 }
-                            )
+
+                                let tableRow = `<td class="${className}">${value}</td>`;
+                            
+                            
+                                tableHTML += tableRow
+                            
+                                if ((i + 1) % 5 == 0) {
+                                    tableHTML += '</tr>'
+                                }
+                            }
+                        
+                            tableBody.innerHTML = tableHTML;
                         }
                     </code>
                 </pre>
@@ -104,9 +168,13 @@
 
             <!-- description -->
             <div class="col-12 col-lg-4 text-light">
-                <p>The code is structured in one function:</p>
-                <p><code>displayMessage()</code></p>
-                <p>The function is then displayed in a <i>sweetalert</i>.</p>
+                <p>The code is structured in three functions:</p>
+                <p><code>getValues()</code></p>
+                <p>This function gets the value from the corresponding HTML elements and stores them in variables <code>startValue</code> and <code>endValue</code>. It then checks to make sure the numbers are indeed integers and, if so, passes them as parameters to the next function:</p>
+                <p><code>generateNumbers()</code></p>
+                <p>This function simply uses a <code>for loop</code> to iterate through the user-specified range, adding each number in that range to an array. It then returns that array as a variable <code>numbersArray</code>, which is passed as a parameter to the final function:</p>
+                <p><code>displayNumbers()</code></p>
+                <p>This function checks whether each item in <code>numbersArray</code> is even or odd, and updates <code>className</code>, to be referenced later by the CSS and make all even numbers <b>bold</b>. After this, the numbers are placed into rows of five and injected into the HTML to update the table and display the results.</p>
             </div>
         </div>
     </main>

@@ -13,6 +13,7 @@
     --bw-title-font: 'Youtube Sans', sans-serif;
     --bw-subtitle-font: 'Youtube Sans Light', sans-serif;
     --bw-heading-font: 'Youtube Sans', sans-serif;
+    --bw-subheading-font: 'Youtube Sans Light', sans-serif;
     --bw-body-font: 'Lato', sans-serif;
 
     --bw-font-size: 1.2rem;
@@ -94,16 +95,22 @@ h5,
 h4,
 .h4,
 h3,
-.h3,
-h2,
-.h2,
+.h3 {
+    font-family: var(--bw-subheading-font);
+    font-weight: 700;
+    letter-spacing: .1rem;
+    color: var(--bw-light-color);
+}
+
 h1,
-.h1 {
+.h1,
+h2,
+.h2 {
     font-family: var(--bw-heading-font);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .1rem;
-    color: var(--bw-title-color);
+    color: var(--bw-light-color);
 }
 
 .btn-primary {
@@ -189,7 +196,7 @@ h1,
 /* start main styles */
 
 .dev-icons {
-    font-size: 4rem;
+    font-size: 3rem;
     padding-left: 0.5rem;
 }
 
@@ -257,6 +264,15 @@ main.container {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
+
+.even {
+    font-weight: bolder;
+}
+
+.odd {
+
+}
+
 
 /* end main styles */
 

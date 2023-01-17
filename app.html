@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>project template</title>
+    <title>centuplicate</title>
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +38,7 @@
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="/img/icon-wave.png" height="50" alt="">
-                    <span class="ms-2">project template</span>
+                    <span class="ms-2">centuplicate</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -77,27 +77,45 @@
 
 
     <main class="content container bg-black">
-        <div class="ms-3 mt-3">
-            <h1 class="mt-2 text-light">APP UI GOES HERE</h1>
-            <input id="message" type="text" placeholder="enter a message...">
-            <button class="btn btn-info" id="btn-submit" type="button">display message</button>
+        <div class="row row-cols-1 row-cols-md-2 mt-2 gy-2 h-100">
+            <div class="col border-2 border-end border-light mb-5">
+                <h1 class="fw-bold mb-3 text-light">centuplicate</h1>
+                <h4 class="text-light">You've seen one number. You've seen ten numbers. Now get ready for 100 numbers,
+                    all on the same page, with even numbers in <strong class="link-style fw-bold fs-3">bold</strong>!
+                </h4>
+                <h2 class="mt-5 border-2 border-bottom text-light">instructions:</h2>
+                <p class="text-light">Enter a starting value and an ending value. Press the button to display results.</p>
+            </div>
+            <div class="col">
+                <form action="#" class="row gy-2 gx-3 pt-2">
+                    <div class="col">
+                        <input id="startValue" type="number" class="form-control"
+                            placeholder="starting value" aria-label="starting value"
+                            value="0" />
+                    </div>
+                    <div class="col">
+                        <input id="endValue" type="number" class="form-control"
+                            placeholder="ending value" aria-label="ending value"
+                            value="100" />
+                    </div>
+                    <div class="col-12 text-end">
+                        <button class="btn btn-info btn-lg" id="btnSubmit" type="button">centuplicate</button>
+                    </div>
+                </form>
+                <h2 class="mt-5 border-bottom border-2 text-light">results</h2>
+                <div class="table-responsive">
+                    <table class="table table-light table-striped">
+                        <tbody id="results">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </main>
 
 
     <footer class="container-fluid mt-5">
-        <!-- <div class="row footer-bg-cta">
-            <div class="col">
-                <div class="container py-2 footer-cta">
-                    <div class="row row-cols-1 align-items-center">
-                        <div class="col p-2 text-center">
-                            <h1>Let's work together!</h1>
-                            <h4>I'm open to new opportunities and ready to work!</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="row align-items-center footer-main">
             <div class="col container">
                 <div class="row align-items-center gy-2">
@@ -135,9 +153,9 @@
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-    
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -145,7 +163,7 @@
     <script src="/js/site.js"></script>
 
     <script>
-        document.getElementById('btn-submit').addEventListener('click', displayMessage)
+        document.getElementById('btnSubmit').addEventListener('click', getValues);
     </script>
 
 </body>
